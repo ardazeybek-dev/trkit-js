@@ -33,12 +33,24 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
-      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
     "./zod": {
-      "import": { "types": "./dist/zod.d.ts", "default": "./dist/zod.js" },
-      "require": { "types": "./dist/zod.d.cts", "default": "./dist/zod.cjs" }
+      "import": {
+        "types": "./dist/zod.d.ts",
+        "default": "./dist/zod.js"
+      },
+      "require": {
+        "types": "./dist/zod.d.cts",
+        "default": "./dist/zod.cjs"
+      }
     }
   },
   "files": [
@@ -60,7 +72,8 @@
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
     "verify": "npm run typecheck && npm run test",
-    "prepublishOnly": "npm run verify && npm run build"
+    "prepublishOnly": "npm run verify && npm run build",
+    "lock:refresh": "node -e \"const fs=require('fs');fs.rmSync('node_modules',{recursive:true,force:true});fs.rmSync('package-lock.json',{force:true})\" && npm install && npm ci --dry-run"
   },
   "devDependencies": {
     "@types/node": "^26.6.10",
