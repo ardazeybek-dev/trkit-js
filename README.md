@@ -134,11 +134,19 @@ test/          one test file per module
 Releases are published to npm by the `npm publish` workflow, which needs a
 repository secret named `NPM_TOKEN`.
 
-## Related
+## Türkiye toolkit
 
-- [trkit](https://github.com/ardazeybek-dev/trkit): the Python version, with a command line tool
-- [kvkk](https://github.com/ardazeybek-dev/kvkk): finds and masks Turkish personal data (TCKN, IBAN, phone…) in files and logs
-- [bordro](https://github.com/ardazeybek-dev/bordro): Turkish payroll calculator
+Part of a small set of tools for the Turkish data that general-purpose libraries get wrong:
+
+| Package | What it does | Install |
+| --- | --- | --- |
+| [trkit](https://github.com/ardazeybek-dev/trkit) | Turkish casing (`i` → `İ`), slugify, TCKN, IBAN and plate validation · Python + CLI | `pip install trkit` |
+| [kvkk](https://github.com/ardazeybek-dev/kvkk) | Finds and masks Turkish personal data in files, logs and dumps | `pip install kvkk` |
+| [ekstre](https://github.com/ardazeybek-dev/ekstre) | Turkish bank statement exports (.xlsx, .xls, .csv) into typed transactions | `pip install ekstre` |
+| [adres-tr](https://github.com/ardazeybek-dev/adres) | Free-form Turkish addresses into province, district, neighbourhood, street… | `pip install adres-tr` |
+| [isgunu](https://github.com/ardazeybek-dev/isgunu) | Public holidays, arife half days and business-day arithmetic · Python + JS | `pip install isgunu` |
+| [efatura-tr](https://github.com/ardazeybek-dev/efatura) | Reads e-Fatura / e-Arşiv (UBL-TR) XML and checks that the totals add up | `pip install efatura-tr` |
+| [bordro](https://github.com/ardazeybek-dev/bordro) | Payroll: gross ↔ net with the cumulative income tax · TypeScript | `npm install bordro` |
 
 ## License
 
