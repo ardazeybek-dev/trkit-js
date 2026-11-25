@@ -1,0 +1,72 @@
+{
+  "name": "@ardazeybek-dev/trkit",
+  "version": "0.1.0",
+  "description": "Turkish text utilities and Türkiye validators for JavaScript: TCKN, VKN, IBAN, phone, licence plate, Turkish-aware upper/lower/slug/sort, plus ready Zod schemas",
+  "keywords": [
+    "turkish",
+    "turkce",
+    "tckn",
+    "tc-kimlik",
+    "vkn",
+    "iban",
+    "telefon",
+    "plaka",
+    "slugify",
+    "zod",
+    "validation",
+    "turkiye"
+  ],
+  "license": "MIT",
+  "author": "Seyid Arda Zeybek",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ardazeybek-dev/trkit-js.git"
+  },
+  "homepage": "https://github.com/ardazeybek-dev/trkit-js#readme",
+  "bugs": {
+    "url": "https://github.com/ardazeybek-dev/trkit-js/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+    },
+    "./zod": {
+      "import": { "types": "./dist/zod.d.ts", "default": "./dist/zod.js" },
+      "require": { "types": "./dist/zod.d.cts", "default": "./dist/zod.cjs" }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "zod": "^3.23.0 || ^4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "verify": "npm run typecheck && npm run test",
+    "prepublishOnly": "npm run verify && npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.10",
+    "tsup": "^9.0.0",
+    "typescript": "~5.9",
+    "vitest": "^5.1.2",
+    "zod": "^4.6.7"
+  }
+}

@@ -1,0 +1,32 @@
+name: npm publish
+
+# Publishes from GitHub's runner, so no one-time 2FA code is needed.
+# Runs by itself when a release is published, or by hand from the Actions tab.
+#
+# Needs one repository secret, NPM_TOKEN: a granular access token from
+# npmjs.com with read and write permission for this package.
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # provenance: proof of where the package was built
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          cache: npm
+      - run: npm ci
+      # prepublishOnly runs the type check, the tests and the build first.
+      - name: Publish
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
