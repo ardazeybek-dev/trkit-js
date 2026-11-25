@@ -76,10 +76,10 @@
     "lock:refresh": "node -e \"const fs=require('fs');fs.rmSync('node_modules',{recursive:true,force:true});fs.rmSync('package-lock.json',{force:true})\" && npm install && npm ci --dry-run"
   },
   "devDependencies": {
-    "@types/node": "^26.6.10",
-    "tsup": "^9.0.0",
+    "@types/node": "^24.19.4",
+    "tsup": "^8.5.1",
     "typescript": "~5.9",
-    "vitest": "^5.1.2",
+    "vitest": "^3.2.7",
     "zod": "^4.6.7"
   }
 }
